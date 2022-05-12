@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Shadow DOM</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <template id="saludo">
+        <style>
+            h1 {
+                background-color: lightsalmon;
+            }
+        </style>
+        <h1>Hola Mundo</h1>
+    </template>
+    <script>
+        window.customElements.define('mi-saludo', class extends HTMLElement {
+            constructor() {
+                super();
+                let content = document.querySelector('#saludo').content;
+                let shadowRoot = this.attachShadow({ mode: 'open' });
+                shadowRoot.appendChild(document.importNode(content, true));
+            }
+        });
+    </script>
+    <mi-saludo></mi-saludo>
+    <h1>Hola</h1>
+    <style>
+        h1 {
+            background-color: rgb(18,105,105);
+        }
+        mi-saludo {
+            background-color: brown;
+            display: flex;
+        }
+    </style>
+</body>
+</html>

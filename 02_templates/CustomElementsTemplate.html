@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Templates</title>
+        <meta name="description" content="Custom Elements with Templates">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <custom-button>Pulsar</custom-button>
+        <custom-button>Pulsar 2</custom-button>
+        <custom-button>Pulsar 3</custom-button>
+
+        <button is="custom-button2">Pulsar botón</button>
+
+        <nuevo-template />
+
+        <script>
+            class CustomButton extends HTMLElement {
+                constructor() {
+                    super(); // Hace referencia al constructor de la clase Padre
+                    this.addEventListener( 'click', function() {
+                        alert("Botón Pulsado");
+                    })
+                }
+            }
+            class CustomButton2 extends HTMLButtonElement {
+                constructor() {
+                    super(); // Hace referencia al constructor de la clase Padre
+                    this.addEventListener( 'click', function() {
+                        alert("Botón Pulsado");
+                    })
+                }
+            }
+            window.customElements.define( 'custom-button', CustomButton );
+            window.customElements.define( 'custom-button2', CustomButton2, { extends: 'button' } );
+        </script>
+
+        <template id="miTemplate">
+            <h1>Hi template</h1>
+        </template>
+        <script>
+            class MiTemplate extends HTMLElement {
+                constructor() {
+                    super();
+                    const content = document.querySelector('#miTemplate').content;
+                    this.appendChild(document.importNode(content, true));
+                }
+            }
+            window.customElements.define('nuevo-template', MiTemplate);
+        </script>
+    </body>
+</html>

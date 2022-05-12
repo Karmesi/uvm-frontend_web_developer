@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>HTML Import</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <script>
+        class MiElemento extends HTMLElement {
+            constructor() {
+                super();
+            }
+            connectedCallback() {
+                this.innerText = 'Mi Texto';
+                this.style.color = this.color;
+            }
+            get color() {
+                return this.getAttribute('micolor');
+            }
+        }
+        window.customElements.define('mi-elemento', MiElemento);
+    </script>
+    <mi-elemento micolor="red"></mi-elemento>
+    <mi-elemento micolor="blue"></mi-elemento>
+    <mi-elemento micolor="green"></mi-elemento>
+</body>
+</html>
