@@ -11,8 +11,36 @@
         window.customElements.define('mi-comp', class extends HTMLElement {
             constructor() {
                 super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.shadowRoot.innerHTML = `<h1>${this.getAttribute('titulo')}</h1>`;
+            }
+
+            static get observedAttributes() {
+                return [
+                    'titulo'
+                ];
+            }
+
+            attributesChangeCallback( name, old, now ) {
+                console.log("el nombre del atributo es: " + name + ". Valor anterior: " + old + ". Valor nuevo: " + now);
+                console.log(document.body.querySelector('mi-comp'));
+            }
+
+            disconnectedCallback() {
+                console.log("me voy a desconectar", this);
             }
         });
+    </script>
+    <mi-comp titulo="hola desde el titulo"></mi-comp>
+    <mi-comp titulo="otro titulo"></mi-comp>
+    <script>
+        setTimeout(() => {
+            let miComp = document.body.querySelector('mi-comp');
+            document.body.removeChild(miComp);
+        }, 5000);
     </script>
 </body>
 </html>
