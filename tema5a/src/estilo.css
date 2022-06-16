@@ -1,0 +1,9 @@
+.hola {
+    color: orangered;
+}
+
+.img-box {
+    max-width: 150px;
+    position: absolute;
+    clear: both;
+}
