@@ -17,6 +17,20 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+let myData = [...data];
+
+function countPending(myTasks) {
+    const totalPending = _.reduce(myTasks, function(sum, task) {
+        if (task[1] === 'pending') {
+            return sum + 1;
+        }
+        return sum;
+    }, 0);
+
+    const pendingDiv = document.getElementById('pending-counter');
+    pendingDiv.innerText = `Pending Tasks: ${totalPending}`;
+}
+
 function myImage() {
     const myImage = new Image();
     myImage.src = imagen;
@@ -55,6 +69,9 @@ function triggerTask(index) {
     statusCell.classList.remove(status);
     statusCell.classList.add(newStatus);
     statusCell.innerText = newStatus;
+
+    myData[index][1] = newStatus;
+    countPending(myData);
 }
 
 function gridList( dataGrid ) {
@@ -76,7 +93,7 @@ function gridList( dataGrid ) {
     myGrid.appendChild(column2);
 
     dataGrid.forEach((element, index) => {
-        const itemStatus = element[1] === '0' ? 'pending' : 'done';
+        const itemStatus = element[1];
 
         const markCell = document.createElement('button');
         markCell.addEventListener('click', () => triggerTask(index));
@@ -110,3 +127,4 @@ function mainComponent() {
 }
 
 document.body.appendChild(mainComponent());
+countPending(myData);

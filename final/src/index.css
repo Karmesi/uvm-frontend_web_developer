@@ -107,3 +107,7 @@ button.mark-cell.done::after {
 .header-cell.right-cell {
     border-top-right-radius: 10px;
 }
+
+#pending-counter {
+    text-align: center;
+}
