@@ -1,0 +1,109 @@
+body {
+    font-family: "Comic Mono", monospace;
+}
+
+.main-element {
+    padding: 0.5em;;
+}
+
+.main-header {
+    border-radius: 15px;
+    background-color: rgb(199, 216, 222);
+    font-family: "Concert One", cursive;
+    font-size: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em;
+    gap: 0em 5em;
+}
+
+img {
+    max-width: 80px;
+    padding: 0.5em;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 8fr 2fr;
+    margin: 0.5em 2em;
+}
+
+.header-cell {
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    padding: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.left-cell {
+    text-align: right;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+    
+.right-cell {
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.mark-cell {
+    margin: 3px;
+    text-align: left;
+    border: unset;
+    align-self: center;
+    justify-self: end;
+}
+
+button.mark-cell {
+    font-weight: bold;
+    width: 160px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+button.mark-cell.pending {
+    background-color: greenyellow;
+}
+
+button.mark-cell.pending::after {
+    content: 'Mark as done';
+}
+
+button.mark-cell.done {
+    background-color: orangered;
+}
+
+button.mark-cell.done::after {
+    content: 'Mark as pending';
+}
+
+.left-cell.done {
+    text-decoration: line-through;
+}
+
+.right-cell.pending {
+    text-transform: capitalize;
+    background-color: lightsalmon;
+}
+
+.right-cell.done {
+    text-transform: capitalize;
+    background-color: lightgreen;
+}
+
+.header-cell.mark-cell {
+    background-color: transparent;
+}
+
+.header-cell.left-cell {
+    border-top-left-radius: 10px;
+}
+
+.header-cell.right-cell {
+    border-top-right-radius: 10px;
+}
