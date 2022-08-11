@@ -1,0 +1,76 @@
+{
+  "rooms": [
+    {
+      "roomId": 1,
+      "beds": {
+        "single": 2,
+        "double": 0,
+        "queen": 0,
+        "king": 0
+      },
+      "capacity": 2,
+      "balcony": false,
+      "available": false
+    },
+    {
+      "roomId": 2,
+      "beds": {
+        "single": 0,
+        "double": 0,
+        "queen": 1,
+        "king": 0
+      },
+      "capacity": 3,
+      "balcony": true,
+      "available": true
+    },
+    {
+      "roomId": 3,
+      "beds": {
+        "single": 0,
+        "double": 0,
+        "queen": 0,
+        "king": 1
+      },
+      "capacity": 4,
+      "balcony": true,
+      "available": false
+    },
+    {
+      "roomId": 4,
+      "beds": {
+        "single": 0,
+        "double": 1,
+        "queen": 0,
+        "king": 0
+      },
+      "capacity": 2,
+      "balcony": false,
+      "available": true
+    },
+    {
+      "roomId": 5,
+      "beds": {
+        "single": 0,
+        "double": 1,
+        "queen": 0,
+        "king": 0
+      },
+      "capacity": 2,
+      "balcony": true,
+      "available": true
+    },
+    {
+      "roomId": 6,
+      "beds": {
+        "single": 1,
+        "double": 1,
+        "queen": 0,
+        "king": 0
+      },
+      "capacity": 3,
+      "balcony": true,
+      "available": true
+    }
+  ]
+}
